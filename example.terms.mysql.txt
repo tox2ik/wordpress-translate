@@ -1,0 +1,65 @@
+
+Dict terms scheme
+=================
+
+mysql> show columns from wpdbprefix_translate_dict;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| term        | varchar(25) | NO   | PRI | NULL    |       |
+| lang_id     | int(11)     | NO   | PRI | NULL    |       |
+| translation | text        | NO   |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+
+mysql> show columns from wpdbprefix_translate_langs;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(25) | NO   |     | NULL    |                |
+| main  | tinyint(1)  | NO   |     | 0       |                |
+| order | tinyint(1)  | NO   |     | 0       |                |
+| icon  | varchar(20) | NO   |     |         |                |
++-------+-------------+------+-----+---------+----------------+
+
+
+Populated terms table (page titles) 
+===================================
+
+mysql> select * from wpdbprefix_translate_dict;
++----------+---------+----------------+
+| term     | lang_id | translation    |
++----------+---------+----------------+
+| home     |       1 | Home           |
+| search   |       3 | Zoek...        |
+| search   |       2 | Søk...         |
+| search   |       1 | Search...      |
+| search   |       4 | Поиск...       |
+| home     |       3 | Huis           |
+| home     |       2 | Hjem           |
+| home     |       4 | Главная        |
+| news     |       1 | News           |
+| news     |       3 | Nieuws         |
+| news     |       2 | Nyheter        |
+| news     |       4 | Новости        |
+| readmore |       1 | Read more...   |
+| readmore |       3 | Lees verder... |
+| readmore |       2 | Les videre...  |
+| readmore |       4 | Далее...       |
+| search   |      25 |                |
+| readmore |      25 |                |
+| news     |      25 |                |
+| home     |      25 |                |
++----------+---------+----------------+
+
+mysql> select * from wpdbprefix_translate_langs;
++----+-----------+------+-------+--------------------+
+| id | name      | main | order | icon               |
++----+-----------+------+-------+--------------------+
+|  1 | english   |    1 |     1 | united-kingdom.gif |
+|  2 | norsk     |    0 |     2 | norway.gif         |
+|  3 | nederlans |    0 |     3 | netherlands.gif    |
+|  4 | russian   |    0 |     3 | russia.gif         |
+| 25 | moo       |    0 |     5 | brazil.gif         |
++----+-----------+------+-------+--------------------+
+

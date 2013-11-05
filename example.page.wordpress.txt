@@ -1,0 +1,63 @@
+How to translate pages
+======================
+
+In summary, there would be several plugin-tags such as 
+
+     [translate para=<section title> lang=<language_name_one>]
+     Text in one language
+     [/translate]
+     
+     [translate para=<section title> lang=<language_name_second>]
+     The same information in a second language
+     [/translate]
+
+The configured languages may be listed (with flags) using: 
+
+in a template:
+
+    <?php
+    if (function_exists('list_translations')) {
+        list_translations(array('flags' => '1'));
+    }
+    ?>
+
+in a post / page / widget: 
+
+    [translations flags=1]
+
+Configuring languages
+=====================
+
+The Plugins section of the wordpress dashboard includes a section called 
+'Translate' which displays controls for creating and maintaining languages
+as well as terms (see example.terms.mysql.txt)
+
+
+
+An example
+==========
+
+This example shows the source of a wordpress page that is configured to 
+display a paragraph in Norwegian or English.
+
+<p class="product"><img src="[home]/images/product2.jpg" alt="MINPRO Hydraulic Roller Mills" />
+[translate nodiv=1 para=hydro lang=english]<strong>MINPRO Hydraulic Roller Mills</strong>
+The MHR Mills are the first wet grinding mill in the world with hydraulic 
+drive. The main advantages of the mills are: Very quick installation due to 
+simple and rugged design. No special foundation needed, since the base frame is 
+the main support for the Mill. The hydraulic drive makes it possible to have 
+speed control (rpm). If an electrical generator is used, it can be of a smaller 
+size due to very low start current. Very smooth start-up of the Mill due to the 
+hydraulic drive. No maintenance of gearboxes and V-ee belts. <a 
+href="?page_id=198">View more</a></p>
+[/translate] [translate nodiv=1 para=hydro lang=norsk]<strong>MINPRO hydraliske rullemøller</strong>
+MINPRO hydraliske rullemøller er det første våte kvern i verden med 
+hydraulisk drift. De viktigste fordelene til møllene er: Meget rask 
+installasjon på grunn av enkelt og robust design. Det stilles ingen spesielle 
+krav til grunnlaget, siden understellet er den viktigste støtten for møllene. 
+Den hydrauliske drift gjør det mulig å ha hastighetskontroll (opm). Dersom en 
+elektrisk generator er brukt, kan den være av mindre størrelse på grunn av 
+svært lav startstrøm. Møllene får en veldig jevn oppstart på grunn av den 
+hydrauliske driften. Ingen vedlikehold av girkasser og V-ee belter er 
+nødevendig. <a href="?page_id=198">Vis mer</a></p>
+[/translate]
