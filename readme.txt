@@ -1,1 +1,1 @@
-Stable tag: 1.3
+see translate.html for details
